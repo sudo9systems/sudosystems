@@ -1,6 +1,6 @@
 // ==================== 1. CONFIG & OPTIONAL SUPABASE SETUP ====================
 const SUPABASE_CONFIG = {
-  url: 'https://ldklodlhytjpglckmgua.supabase.co/rest/v1/',
+  url: 'https://ldklodlhytjpglckmgua.supabase.co',
   anonKey: 'sb_publishable_FkrlbHsv4IoKuzeeZYaiLQ_eriObrFH'
 };
 
