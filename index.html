@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudo Systems - Laptop, Desktop, Servers &amp; Data Recovery | Kadapa</title>
+  <script src="assets/js/image-fallback.js"></script>
+  <meta name="description" content="Sudo Systems in Kadapa: Laptop & Desktop repair, Data Recovery, Server Solutions, and CCTV & Networking with Ai Assistant lead capture.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="min-h-screen antialiased">
+
+  <!-- ==================== PUBLIC LANDING & AI ASSISTANT VIEW ==================== -->
+  <div id="publicAppView">
+    <!-- Sticky Navbar -->
+    <nav class="fixed top-0 inset-x-0 z-40 studio-nav">
+      <div class="max-w-7xl mx-auto px-3.5 sm:px-6 py-3 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-3">
+        <a href="#home" class="flex items-center gap-2.5 sm:gap-3 group min-w-0 shrink-0">
+          <span class="sudo-terminal-badge px-2.5 sm:px-3 py-2 rounded-xl text-sm sm:text-lg leading-none shrink-0" aria-hidden="true">
+            <span class="sudo-prompt-chevron">
+              <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </span><span class="sudo-cursor">_</span>
+          </span>
+          <div class="min-w-0">
+            <span class="block text-sm sm:text-xl font-extrabold tracking-tight text-slate-900 truncate">
+              Sudo <span class="text-emerald-700">Systems</span>
+            </span>
+            <span class="hidden md:block text-xs font-medium text-slate-500">
+              Laptop · Desktop · Servers · Data Recovery · Kadapa
+            </span>
+          </div>
+        </a>
+
+        <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
+          <a href="#home" class="hover:text-emerald-700 transition-colors">Home</a>
+          <a href="#services" class="hover:text-emerald-700 transition-colors">Services</a>
+          <a href="#studio-lab" class="hover:text-emerald-700 transition-colors">Repair Tips</a>
+          <a href="#footer" class="hover:text-emerald-700 transition-colors">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-1.5 sm:gap-3">
+          <button type="button" onclick="openSupportModal()" class="aluminum-btn px-3 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 sm:gap-2 cursor-pointer whitespace-nowrap">
+            <svg class="w-4 h-4 text-emerald-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+            <span class="hidden sm:inline">Book Your Service Now</span>
+            <span class="sm:hidden">Book Now</span>
+          </button>
+          <a href="https://wa.me/919030309036?text=Hello%20Sudo%20Systems%20Kadapa%2C%20I%20need%20IT%20assistance." target="_blank" rel="noopener noreferrer" class="emerald-cta px-3 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.01-2.42.27-.29.58-.36.77-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.13.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.29.15.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+            <span class="hidden sm:inline">WhatsApp</span>
+          </a>
+          <button type="button" id="mobileMenuBtn" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobileMenu" class="lg:hidden aluminum-btn w-10 h-10 rounded-full flex items-center justify-center shrink-0 cursor-pointer">
+            <svg class="w-5 h-5 text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div id="mobileMenu" class="lg:hidden hidden bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-4 space-y-3 shadow-lg">
+        <div class="flex flex-col space-y-1 text-sm font-semibold text-slate-700">
+          <a href="#home" onclick="toggleMobileMenu(false)" class="py-2.5 px-2 rounded-xl hover:bg-slate-100 hover:text-emerald-700">Home</a>
+          <a href="#services" onclick="toggleMobileMenu(false)" class="py-2.5 px-2 rounded-xl hover:bg-slate-100 hover:text-emerald-700">Services</a>
+          <a href="#studio-lab" onclick="toggleMobileMenu(false)" class="py-2.5 px-2 rounded-xl hover:bg-slate-100 hover:text-emerald-700">Repair Tips</a>
+          <a href="#footer" onclick="toggleMobileMenu(false)" class="py-2.5 px-2 rounded-xl hover:bg-slate-100 hover:text-emerald-700">Contact</a>
+        </div>
+        <div class="pt-2 flex flex-col sm:flex-row gap-2.5">
+          <button type="button" onclick="openSupportModal(); toggleMobileMenu(false);" class="flex-1 aluminum-btn py-3 rounded-full text-xs font-bold">
+            Open Support Form
+          </button>
+          <button type="button" onclick="openAiAssistant(); toggleMobileMenu(false);" class="flex-1 emerald-cta py-3 rounded-full text-xs font-bold">
+            Chat with Ai Assistant
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 sm:pt-32 lg:pt-36 pb-14 sm:pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
+        <!-- Left Hero Content Block inside Frosted Glass Frame -->
+        <div class="lg:col-span-6">
+          <div class="hero-content-frame rounded-3xl p-5 sm:p-8 space-y-5 sm:space-y-6 text-center lg:text-left">
+            <h1 class="text-3xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+              Laptop, Desktop,<br>
+              Servers &amp; <span class="text-emerald-700">Data Recovery</span>
+            </h1>
+
+            <p class="text-sm sm:text-lg text-slate-700 leading-relaxed max-w-xl mx-auto lg:mx-0">
+We provide reliable laptop, desktop, data recovery, server support, CCTV installation and networking services for homes and businesses in Kadapa. Our goal is to keep your technology running smoothly with expert solutions and dependable local support.            </p>
+
+            <div class="space-y-1.5 pt-1 max-w-xl mx-auto lg:mx-0">
+              <div id="heroTopicLabel" class="text-xs font-extrabold uppercase tracking-wider text-slate-600">
+                Laptop Issue
+              </div>
+              <div class="text-xl sm:text-3xl font-extrabold text-slate-900 tracking-tight min-h-[2rem] sm:min-h-[2.4rem]">
+                <span
+                  id="heroTypewriter"
+                  class="hero-typewriter"
+                  data-topics="Laptop Issue|Desktop Issue|Server Issue|Data Recovery|Laptop Issue|Desktop Issue|Server Issue|Data Recovery|Laptop Issue|Desktop Issue|Server Issue|Data Recovery"
+                  data-phrases="Keyboard stuck?|Desktop won’t boot?|Server down or slow?|Clicking hard drive?|Overheating &amp; noisy fan?|SMPS power failed?|RAID array degraded?|Accidental format / delete?|Cracked or black screen?|No display on monitor?|Active Directory / LAN error?|Dead SSD or USB drive?"
+                  data-taglines="Keys skipping, typing wrong letters, or dead altogether on one side.|Tower fans spin but no display, motherboard beeps, or sudden restarts.|Office Windows/Linux server unresponsive, file shares down, or backup failing.|Mechanical HDD clicking or not mounting — power it off immediately to protect data.|Thermal throttling, dust buildup, or sudden shutdowns under load.|Power supply unit buzzing, burnt smell, or desktop refuses to power on.|RAID 0/1/5/10 volume offline or drive rebuild needed without losing critical records.|Important business files, Tally data, or family photos wiped or formatted.|Lines, flickers, broken hinges, or shattered glass killing your laptop display.|RAM, GPU, or motherboard fault preventing signal to your desktop screen.|User logins, shared folders, or automated server backups need urgent configuration.|Unrecognized NVMe/SATA SSD, corrupted pen drive, or water-damaged phone storage."
+                >Keyboard stuck?</span>
+              </div>
+              <p id="heroTypewriterTagline" class="text-xs sm:text-sm font-medium text-slate-600 min-h-[2.5rem] sm:min-h-[1.5rem]">
+                Keys skipping, typing wrong letters, or dead altogether on one side.
+              </p>
+            </div>
+
+            <div class="issue-chips max-w-xl mx-auto lg:mx-0" aria-label="Common Laptop, Desktop, Server and Data Recovery issues we fix">
+              <span class="chip">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M8 12h.01M12 12h.01M16 12h.01M7 16h10"/></svg>
+                Keyboard Stuck
+              </span>
+              <span class="chip">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                Cracked / No Display
+              </span>
+              <span class="chip">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><circle cx="12" cy="14" r="2"/></svg>
+                Desktop / SMPS Dead
+              </span>
+              <span class="chip">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                Overheating
+              </span>
+              <span class="chip">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                Server Setup &amp; Faults
+              </span>
+              <span class="chip">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                RAID / NAS Recovery
+              </span>
+              <span class="chip">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg>
+                Clicking HDD / Dead SSD
+              </span>
+              <span class="chip">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                Formatted / Lost Data
+              </span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-1">
+              <button type="button" onclick="openAiAssistant()" class="w-full sm:w-auto emerald-cta px-6 py-3.5 rounded-full text-sm sm:text-base font-bold inline-flex items-center justify-center gap-2.5 cursor-pointer">
+                <span class="ai-avatar-wrap w-7 h-7">
+                  <img src="assets/images/image_9f0794c6.jpg" alt="Ai Assistant" class="ai-bear-avatar" onerror="handleAssistantImgError(this)">
+                </span>
+                <span>Chat with Ai Assistant</span>
+              </button>
+              <button type="button" onclick="openSupportModal()" class="w-full sm:w-auto aluminum-btn px-7 py-4 rounded-full text-sm sm:text-base font-bold inline-flex items-center justify-center gap-2.5 cursor-pointer">
+                <svg class="w-5 h-5 text-emerald-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+                <span>Book Your Service Now</span>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2.5 sm:gap-4 pt-3 sm:pt-4 max-w-lg mx-auto lg:mx-0">
+              <div class="studio-card rounded-2xl p-3 sm:p-3.5 text-center">
+                <div class="text-lg sm:text-2xl font-extrabold text-slate-900">500+</div>
+                <div class="text-[11px] sm:text-xs font-medium text-slate-500">Kadapa Clients</div>
+              </div>
+              <div class="studio-card rounded-2xl p-3 sm:p-3.5 text-center">
+                <div class="text-lg sm:text-2xl font-extrabold text-emerald-700">95%</div>
+                <div class="text-[11px] sm:text-xs font-medium text-slate-500">Recovery Rate</div>
+              </div>
+              <div class="studio-card rounded-2xl p-3 sm:p-3.5 text-center">
+                <div class="text-lg sm:text-2xl font-extrabold text-slate-900">10+ Yrs</div>
+                <div class="text-[11px] sm:text-xs font-medium text-slate-500">IT &amp; Server Care</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Pedestal Card with Embedded Service Booking Form -->
+        <div class="lg:col-span-6">
+          <div class="studio-pedestal-frame rounded-3xl p-5 sm:p-8 relative overflow-hidden">
+            <div class="absolute -top-16 -right-16 w-56 h-56 rounded-full bg-amber-200/35 blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-emerald-300/25 blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 space-y-5">
+              <div class="flex items-center justify-between gap-3 pb-3 border-b border-slate-200/80">
+                <div class="flex items-center gap-3">
+                  <span class="sudo-terminal-badge px-2.5 py-2 rounded-xl text-sm leading-none" aria-hidden="true">
+                    <span class="sudo-prompt-chevron">
+                      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    </span><span class="sudo-cursor">_</span>
+                  </span>
+                  <div>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">Book Your Service Now</h2>
+                    <p class="text-xs text-slate-500">Working Hours: Mon–Sat: 9:00 AM – 8:00 PM IST · WhatsApp +91-9030309036</p>
+                  </div>
+                </div>
+              </div>
+
+              <form id="heroHelpdeskForm" onsubmit="handleHelpdeskSubmit(event)" class="space-y-3.5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div>
+                    <label for="heroHdName" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Your Name *</label>
+                    <input id="heroHdName" name="hdName" type="text" autocomplete="name" required placeholder="e.g., Rajan " class="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900">
+                  </div>
+
+                  <div>
+                    <label for="heroHdPhone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Mobile Number *</label>
+                    <input id="heroHdPhone" name="hdPhone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="e.g., 9030309036" class="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div>
+                    <label for="heroHdService" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Required Service *</label>
+                    <select id="heroHdService" name="hdService" required class="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900">
+                      <option value="" disabled selected>Select a Sudo Systems service</option>
+                      <option value="Laptop/PC Repair">Laptop / Desktop Repair</option>
+                      <option value="Data Recovery">Data Recovery (HDD / SSD / USB / RAID / Mobile)</option>
+                      <option value="Server Solutions">Server Solutions (Windows / Linux / Setup / Support)</option>
+                      <option value="CCTV & Networking">CCTV &amp; Networking (Cameras / Wi-Fi / LAN)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label for="heroHdTiming" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Working Hours *</label>
+                    <select id="heroHdTiming" name="hdTiming" required class="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900">
+                      <option value="" disabled selected>Select shift &amp; hour (10 AM – 8 PM)</option>
+                      <optgroup label="Morning (10:00 AM – 12:00 PM)">
+                        <option value="Morning · 10:00 AM (Working Hours)">Morning · 10:00 AM</option>
+                        <option value="Morning · 11:00 AM (Working Hours)">Morning · 11:00 AM</option>
+                        <option value="Morning · 12:00 PM (Working Hours)">Morning · 12:00 PM</option>
+                      </optgroup>
+                      <optgroup label="Afternoon (1:00 PM – 4:00 PM)">
+                        <option value="Afternoon · 1:00 PM (Working Hours)">Afternoon · 1:00 PM</option>
+                        <option value="Afternoon · 2:00 PM (Working Hours)">Afternoon · 2:00 PM</option>
+                        <option value="Afternoon · 3:00 PM (Working Hours)">Afternoon · 3:00 PM</option>
+                        <option value="Afternoon · 4:00 PM (Working Hours)">Afternoon · 4:00 PM</option>
+                      </optgroup>
+                      <optgroup label="Evening (5:00 PM – 8:00 PM)">
+                        <option value="Evening · 5:00 PM (Working Hours)">Evening · 5:00 PM</option>
+                        <option value="Evening · 6:00 PM (Working Hours)">Evening · 6:00 PM</option>
+                        <option value="Evening · 7:00 PM (Working Hours)">Evening · 7:00 PM</option>
+                        <option value="Evening · 8:00 PM (Working Hours)">Evening · 8:00 PM</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="heroHdDescription" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">Problem / Service Details *</label>
+                  <textarea id="heroHdDescription" name="hdDescription" rows="3" required placeholder="Describe device model, issue symptoms, or service requirement..." class="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900 resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full emerald-cta py-3 px-5 rounded-xl text-sm font-bold inline-flex items-center justify-center gap-2 cursor-pointer">
+                  <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.01-2.42.27-.29.58-.36.77-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.13.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.29.15.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+                  <span>Book &amp; Send to WhatsApp</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="section-heading-frame rounded-3xl p-6 sm:p-8 text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            Sudo Systems Service Catalog
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Complete IT &amp; Recovery Solutions
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base">
+            Explore our four core service pillars in Kadapa. Click any card for full capabilities or ask <strong>Ai Assistant</strong> to diagnose your issue.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+          <!-- 1. Data Recovery -->
+          <article class="studio-card rounded-3xl p-5 flex flex-col justify-between">
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGFyZCUyMGRyaXZlfGVufDB8fDB8fHww"
+                alt="Data Recovery storage drive hardware"
+                class="service-thumb mb-4"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80';"
+              >
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-lg font-extrabold text-slate-900">Data Recovery</h3>
+                <span class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </span>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                Recover files from HDDs, SSDs, USB pen-drives, memory cards, RAID/NAS arrays, and mobile devices with confidential handling.
+              </p>
+            </div>
+            <div class="flex gap-2">
+              <button type="button" data-learn-more="data-recovery" onclick="showServiceDetails('data-recovery')" class="flex-1 aluminum-btn py-2.5 px-3 rounded-xl text-xs font-bold cursor-pointer">
+                Learn More
+              </button>
+              <button type="button" onclick="openAiAssistant('Data Recovery')" aria-label="Probe Data Recovery with Ai Assistant" class="emerald-cta p-1.5 rounded-xl text-xs font-bold cursor-pointer inline-flex items-center justify-center" title="Probe Data Recovery with Ai Assistant">
+                <span class="ai-avatar-wrap w-7 h-7">
+                  <img src="assets/images/image_9f0794c6.jpg" alt="Ai Assistant" class="ai-bear-avatar" onerror="handleAssistantImgError(this)">
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 2. Laptop / PC Repair -->
+          <article class="studio-card rounded-3xl p-5 flex flex-col justify-between">
+            <div>
+              <img
+                src="https://helios-i.mashable.com/imagery/articles/079XxVrq8prw8kcGBDKNef4/hero-image.fill.size_1248x702.v1708730647.jpg"
+                alt="Laptop and Desktop hardware repair workbench"
+                class="service-thumb mb-4"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1588702547919-26089e690ecc?auto=format&fit=crop&w=1000&q=80';"
+              >
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-lg font-extrabold text-slate-900">Laptop/PC Repair</h3>
+                <span class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>
+                </span>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                Screens, keyboards, hinges, motherboard/power faults, RAM/SSD upgrades, thermal paste repasting, OS setup, and virus removal.
+              </p>
+            </div>
+            <div class="flex gap-2">
+              <button type="button" data-learn-more="pc-repair" onclick="showServiceDetails('pc-repair')" class="flex-1 aluminum-btn py-2.5 px-3 rounded-xl text-xs font-bold cursor-pointer">
+                Learn More
+              </button>
+              <button type="button" onclick="openAiAssistant('Laptop/PC Repair')" aria-label="Probe Laptop/PC Repair with Ai Assistant" class="emerald-cta p-1.5 rounded-xl text-xs font-bold cursor-pointer inline-flex items-center justify-center" title="Probe Laptop/PC Repair with Ai Assistant">
+                <span class="ai-avatar-wrap w-7 h-7">
+                  <img src="assets/images/image_9f0794c6.jpg" alt="Ai Assistant" class="ai-bear-avatar" onerror="handleAssistantImgError(this)">
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 3. Server Solutions -->
+          <article class="studio-card rounded-3xl p-5 flex flex-col justify-between">
+            <div>
+              <img
+                src="https://c4.wallpaperflare.com/wallpaper/447/85/162/computer-lights-glow-blur-wallpaper-preview.jpg"
+                alt="Enterprise Server Solutions and rack infrastructure"
+                class="service-thumb mb-4"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=80';"
+              >
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-lg font-extrabold text-slate-900">Server Solutions</h3>
+                <span class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </span>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                Windows Server &amp; Linux server deployment, Active Directory, local file/database sharing, automated backups, and maintenance.
+              </p>
+            </div>
+            <div class="flex gap-2">
+              <button type="button" data-learn-more="server-solutions" onclick="showServiceDetails('server-solutions')" class="flex-1 aluminum-btn py-2.5 px-3 rounded-xl text-xs font-bold cursor-pointer">
+                Learn More
+              </button>
+              <button type="button" onclick="openAiAssistant('Server Solutions')" aria-label="Probe Server Solutions with Ai Assistant" class="emerald-cta p-1.5 rounded-xl text-xs font-bold cursor-pointer inline-flex items-center justify-center" title="Probe Server Solutions with Ai Assistant">
+                <span class="ai-avatar-wrap w-7 h-7">
+                  <img src="assets/images/image_9f0794c6.jpg" alt="Ai Assistant" class="ai-bear-avatar" onerror="handleAssistantImgError(this)">
+                </span>
+              </button>
+            </div>
+          </article>
+
+          <!-- 4. CCTV & Networking -->
+          <article class="studio-card rounded-3xl p-5 flex flex-col justify-between">
+            <div>
+              <img
+                src="https://as1.ftcdn.net/v2/jpg/18/46/54/16/1000_F_1846541676_OTuBkFKSV7Cm68OQmtecN9MQ1oIHRmYT.jpg"
+                alt="CCTV surveillance and business networking setup"
+                class="service-thumb mb-4"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1000&q=80';"
+              >
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-lg font-extrabold text-slate-900">CCTV &amp; Networking</h3>
+                <span class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2" ry="2"/></svg>
+                </span>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed mb-5">
+                HD/4K CCTV cameras, DVR/NVR mobile viewing, structured LAN cabling, routers, switches, and office/home Wi-Fi optimization.
+              </p>
+            </div>
+            <div class="flex gap-2">
+              <button type="button" data-learn-more="cctv-networking" onclick="showServiceDetails('cctv-networking')" class="flex-1 aluminum-btn py-2.5 px-3 rounded-xl text-xs font-bold cursor-pointer">
+                Learn More
+              </button>
+              <button type="button" onclick="openAiAssistant('CCTV & Networking')" aria-label="Probe CCTV & Networking with Ai Assistant" class="emerald-cta p-1.5 rounded-xl text-xs font-bold cursor-pointer inline-flex items-center justify-center" title="Probe CCTV & Networking with Ai Assistant">
+                <span class="ai-avatar-wrap w-7 h-7">
+                  <img src="assets/images/image_9f0794c6.jpg" alt="Ai Assistant" class="ai-bear-avatar" onerror="handleAssistantImgError(this)">
+                </span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before You Visit · Quick User Guide Section -->
+    <section id="studio-lab" class="py-12 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="studio-pedestal-frame rounded-3xl p-6 sm:p-10 grid lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-6">
+            <img
+              src="assets/images/sudo_image.jpg"
+              alt="3D Sudo Systems Technology Hub in Kadapa showing laptop diagnostics, server rack, data recovery, and CCTV network infrastructure"
+              class="w-full h-64 sm:h-80 object-cover rounded-2xl border border-white shadow-md block"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1597852074816-d933c7d2b988?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGFyZCUyMGRyaXZlfGVufDB8fDB8fHww';"
+            >
+          </div>
+          <div class="lg:col-span-6 space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+              Before You Visit · Quick User Guide
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Protect Your Data &amp; Speed Up Your Repair
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+              A few simple precautions can save critical files and cut turnaround time in half: <strong>power off clicking or water-damaged drives immediately</strong> instead of running recovery software, note down any beep codes or error messages, and bring your original laptop charger along for accurate power diagnostics.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3 text-sm">
+              <div class="studio-card rounded-2xl p-3.5 flex items-center gap-3">
+                <svg class="w-6 h-6 text-emerald-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg>
+                <div>
+                  <div class="font-bold text-slate-900">Stop Using Failing Drives</div>
+                  <div class="text-xs text-slate-500">Prevents permanent platter or NAND damage</div>
+                </div>
+              </div>
+              <div class="studio-card rounded-2xl p-3.5 flex items-center gap-3">
+                <svg class="w-6 h-6 text-emerald-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                <div>
+                  <div class="font-bold text-slate-900">No Data, No Charge Policy</div>
+                  <div class="text-xs text-slate-500">Free diagnosis &amp; strict file privacy</div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-3 pt-1">
+              <button type="button" onclick="openAiAssistant()" class="emerald-cta px-6 py-3 rounded-full text-sm font-bold inline-flex items-center gap-2 cursor-pointer">
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span>Start Ai Assistant Check</span>
+              </button>
+              <a href="tel:+919030309036" class="aluminum-btn px-6 py-3 rounded-full text-sm font-bold inline-flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+91-9030309036</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-slate-900/95 backdrop-blur-md text-slate-200 pt-14 pb-24 sm:pb-12 mt-8 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-slate-800">
+          <div class="lg:col-span-2 space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="sudo-terminal-badge px-3 py-2 rounded-xl text-lg leading-none" aria-hidden="true">
+                <span class="sudo-prompt-chevron">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </span><span class="sudo-cursor">_</span>
+              </span>
+              <div>
+                <h3 class="text-lg font-extrabold text-white">Sudo Systems</h3>
+                <p class="text-xs text-emerald-400 font-medium">Laptop · Desktop · Servers · Data Recovery · Kadapa</p>
+              </div>
+            </div>
+            <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+              Reliable computer &amp; laptop repair, data recovery, business server solutions, and CCTV &amp; networking in Kadapa, Andhra Pradesh.
+            </p>
+            <div class="flex flex-wrap gap-2.5">
+              <button type="button" onclick="openSupportModal()" class="emerald-cta px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold inline-flex items-center gap-2 cursor-pointer">
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+                <span>Book Your Service Now</span>
+              </button>
+              <a href="https://wa.me/919030309036?text=Hello%20Sudo%20Systems%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-4 py-2.5 rounded-full text-xs sm:text-sm font-bold inline-flex items-center gap-2 transition-colors">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.01-2.42.27-.29.58-.36.77-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.13.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.29.15.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+                <span>WhatsApp Us</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="space-y-3 text-sm">
+            <h4 class="font-bold text-white uppercase tracking-wider text-xs">Contact &amp; Working Hours</h4>
+            <p class="text-slate-300 flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Rajiv Park Road, Kadapa</span>
+            </p>
+            <p class="text-slate-300 flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+919030309036" class="hover:text-emerald-300">+91-9030309036</a>
+            </p>
+            <p class="text-slate-300 flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:sudo9systems@gmail.com" class="hover:text-emerald-300 break-all">sudo9systems@gmail.com</a>
+            </p>
+            <p class="text-slate-400 text-xs flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Working Hours: Mon–Sat: 9:00 AM – 8:00 PM IST</span>
+            </p>
+          </div>
+
+          <div class="space-y-2.5 text-sm">
+            <h4 class="font-bold text-white uppercase tracking-wider text-xs">Services</h4>
+            <button type="button" data-learn-more="data-recovery" onclick="showServiceDetails('data-recovery')" class="block text-left text-slate-300 hover:text-emerald-400 transition-colors cursor-pointer">Data Recovery</button>
+            <button type="button" data-learn-more="pc-repair" onclick="showServiceDetails('pc-repair')" class="block text-left text-slate-300 hover:text-emerald-400 transition-colors cursor-pointer">Laptop &amp; Desktop Repair</button>
+            <button type="button" data-learn-more="server-solutions" onclick="showServiceDetails('server-solutions')" class="block text-left text-slate-300 hover:text-emerald-400 transition-colors cursor-pointer">Server Solutions</button>
+            <button type="button" data-learn-more="cctv-networking" onclick="showServiceDetails('cctv-networking')" class="block text-left text-slate-300 hover:text-emerald-400 transition-colors cursor-pointer">CCTV &amp; Networking</button>
+          </div>
+        </div>
+
+        <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+          <div>© <span id="footerYear">2026</span> Sudo Systems. All rights reserved.</div>
+          <div class="flex items-center gap-4">
+            <span>Kadapa, Andhra Pradesh, India</span>
+            <a href="#/admin" onclick="navigateToAdmin(event)" class="text-slate-400 hover:text-emerald-400 underline underline-offset-4 transition-colors">Admin Console (#/admin)</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Service Details Modal -->
+    <div id="serviceModal" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle" style="display: none; z-index: 9999;" class="fixed inset-0 bg-slate-950/65 backdrop-blur-sm hidden items-center justify-center p-4">
+      <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 border border-slate-200 shadow-2xl text-slate-800">
+        <div class="flex items-start justify-between gap-4 pb-4 border-b border-slate-200">
+          <h3 id="serviceModalTitle" class="text-xl sm:text-2xl font-extrabold text-slate-900"></h3>
+          <button type="button" onclick="closeServiceModal()" aria-label="Close Service Modal" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center shrink-0 cursor-pointer">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div id="serviceModalBody" class="py-5 text-sm sm:text-base text-slate-700 leading-relaxed space-y-4"></div>
+        <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
+          <button type="button" id="serviceModalProbeBtn" class="flex-1 emerald-cta py-3 px-5 rounded-2xl text-sm font-bold inline-flex items-center justify-center gap-2 cursor-pointer">
+            <span class="ai-avatar-wrap w-6 h-6">
+              <img src="assets/images/image_9f0794c6.jpg" alt="Ai Assistant" class="ai-bear-avatar" onerror="handleAssistantImgError(this)">
+            </span>
+            <span>Ai Assistant Check</span>
+          </button>
+          <button type="button" onclick="closeServiceModal(); openSupportModal();" class="flex-1 aluminum-btn py-3 px-5 rounded-2xl text-sm font-bold inline-flex items-center justify-center gap-2 cursor-pointer">
+            <svg class="w-4 h-4 text-emerald-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>Open Support Form</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- IT Helpdesk Support Form Modal -->
+    <div id="supportFormModal" role="dialog" aria-modal="true" aria-labelledby="supportFormModalTitle" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+      <div class="studio-card bg-white rounded-3xl max-w-lg w-full max-h-[92vh] overflow-y-auto p-6 sm:p-8">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-5">
+          <div class="flex items-center gap-3">
+            <span class="sudo-terminal-badge px-2.5 py-2 rounded-xl text-sm leading-none" aria-hidden="true">
+              <span class="sudo-prompt-chevron">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </span><span class="sudo-cursor">_</span>
+            </span>
+            <div>
+              <h3 id="supportFormModalTitle" class="text-lg sm:text-xl font-extrabold text-slate-900">Book Your Service Now</h3>
+              <p class="text-xs text-slate-500">Working Hours: Mon–Sat: 9:00 AM – 8:00 PM IST · WhatsApp +91-9030309036</p>
+            </div>
+          </div>
+          <button type="button" onclick="closeSupportModal()" aria-label="Close Booking Form" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center cursor-pointer">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <form id="itHelpdeskForm" onsubmit="handleHelpdeskSubmit(event)" class="space-y-4">
+          <div>
+            <label for="hdName" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Your Name *</label>
+            <input id="hdName" name="hdName" type="text" autocomplete="name" required placeholder="e.g.,Rajan Pasupuleti" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900">
+          </div>
+
+          <div>
+            <label for="hdPhone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Mobile Number *</label>
+            <input id="hdPhone" name="hdPhone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="e.g., 9030309036" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label for="hdService" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Required Service *</label>
+              <select id="hdService" name="hdService" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900">
+                <option value="" disabled selected>Select a Sudo Systems service</option>
+                <option value="Laptop/PC Repair">Laptop / Desktop Repair</option>
+                <option value="Data Recovery">Data Recovery (HDD / SSD / USB / RAID / Mobile)</option>
+                <option value="Server Solutions">Server Solutions (Windows / Linux / Setup / Support)</option>
+                <option value="CCTV & Networking">CCTV &amp; Networking (Cameras / Wi-Fi / LAN)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="hdTiming" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Working Hours *</label>
+              <select id="hdTiming" name="hdTiming" required class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900">
+                <option value="" disabled selected>Select shift &amp; hour (10 AM – 8 PM)</option>
+                <optgroup label="Morning (10:00 AM – 12:00 PM)">
+                  <option value="Morning · 10:00 AM (Working Hours)">Morning · 10:00 AM</option>
+                  <option value="Morning · 11:00 AM (Working Hours)">Morning · 11:00 AM</option>
+                  <option value="Morning · 12:00 PM (Working Hours)">Morning · 12:00 PM</option>
+                </optgroup>
+                <optgroup label="Afternoon (1:00 PM – 4:00 PM)">
+                  <option value="Afternoon · 1:00 PM (Working Hours)">Afternoon · 1:00 PM</option>
+                  <option value="Afternoon · 2:00 PM (Working Hours)">Afternoon · 2:00 PM</option>
+                  <option value="Afternoon · 3:00 PM (Working Hours)">Afternoon · 3:00 PM</option>
+                  <option value="Afternoon · 4:00 PM (Working Hours)">Afternoon · 4:00 PM</option>
+                </optgroup>
+                <optgroup label="Evening (5:00 PM – 8:00 PM)">
+                  <option value="Evening · 5:00 PM (Working Hours)">Evening · 5:00 PM</option>
+                  <option value="Evening · 6:00 PM (Working Hours)">Evening · 6:00 PM</option>
+                  <option value="Evening · 7:00 PM (Working Hours)">Evening · 7:00 PM</option>
+                  <option value="Evening · 8:00 PM (Working Hours)">Evening · 8:00 PM</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="hdDescription" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Problem / Service Details *</label>
+            <textarea id="hdDescription" name="hdDescription" rows="3" required placeholder="Describe device model, issue symptoms, or service requirement..." class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900 resize-none"></textarea>
+          </div>
+
+          <div class="pt-2 flex gap-3">
+            <button type="button" onclick="closeSupportModal()" class="flex-1 aluminum-btn py-3 rounded-xl text-sm font-bold cursor-pointer">
+              Cancel
+            </button>
+            <button type="submit" class="flex-1 emerald-cta py-3 rounded-xl text-sm font-bold inline-flex items-center justify-center gap-2 cursor-pointer">
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.01-2.42.27-.29.58-.36.77-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.13.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.29.15.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+              <span>Book &amp; Send to WhatsApp</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Floating Ai Assistant Launcher & Chat Drawer -->
+    <div class="fixed bottom-4 right-4 left-4 sm:left-auto sm:bottom-5 sm:right-5 z-40 flex flex-col items-end gap-3 pointer-events-none">
+      <div id="aiChatWindow" class="hidden pointer-events-auto w-full sm:w-96 max-w-md studio-card bg-white rounded-3xl overflow-hidden flex flex-col border border-slate-200 shadow-2xl">
+        <div class="bg-slate-900 text-white px-3.5 sm:px-4 py-3 sm:py-3.5 flex items-center justify-between gap-2">
+          <div class="flex items-center gap-2 sm:gap-2.5 min-w-0">
+            <span class="ai-avatar-wrap w-9 h-9">
+              <img src="assets/images/image_9f0794c6.jpg" alt="Ai Assistant" class="ai-bear-avatar" onerror="handleAssistantImgError(this)">
+            </span>
+            <div class="min-w-0">
+              <div class="text-xs sm:text-sm font-bold flex items-center gap-1.5">
+                <span class="truncate">Ai Assistant</span>
+                <span class="w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span>
+              </div>
+              <div id="aiChatSubtitle" class="text-[10px] sm:text-[11px] text-slate-300 truncate">Sudo Systems · Kadapa</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-1.5 shrink-0">
+            <button type="button" onclick="endAiChatSession()" title="End Chat & Save Lead" class="bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] sm:text-xs font-bold px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer">
+              End Chat
+            </button>
+            <button type="button" onclick="openAiAssistant(null, true)" title="Restart Chat" aria-label="Restart Chat" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs w-8 h-8 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            </button>
+            <button type="button" onclick="closeAiAssistant()" aria-label="Minimize Ai Assistant" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs w-8 h-8 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="aiChatMessages" role="log" aria-live="polite" class="flex-1 overflow-y-auto chat-scroll p-3.5 sm:p-4 space-y-3 bg-slate-50/80"></div>
+        <div id="aiQuickChips" class="px-3 sm:px-3.5 py-2 bg-white border-t border-slate-100 flex flex-wrap gap-1.5 max-h-24 overflow-y-auto"></div>
+
+        <form id="aiChatForm" onsubmit="handleAiChatSubmit(event)" class="p-2.5 sm:p-3 bg-white border-t border-slate-200 flex items-center gap-2">
+          <input
+            id="aiChatInput"
+            type="text"
+            aria-label="Message Ai Assistant"
+            autocomplete="off"
+            placeholder="Ask about services or reply here..."
+            class="flex-1 min-w-0 px-3.5 py-2.5 rounded-xl bg-slate-100 border border-slate-200 focus:border-emerald-600 focus:bg-white outline-none text-sm text-slate-900"
+          >
+          <button type="submit" aria-label="Send Message" class="emerald-cta w-11 h-11 rounded-xl flex items-center justify-center shrink-0 cursor-pointer">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+      </div>
+
+      <button type="button" id="aiAssistantLauncherBtn" aria-expanded="false" aria-controls="aiChatWindow" onclick="toggleAiAssistant()" class="pointer-events-auto emerald-cta pl-2.5 pr-4 sm:pr-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-extrabold inline-flex items-center gap-2.5 cursor-pointer shadow-lg">
+        <span class="ai-avatar-wrap w-8 h-8">
+          <img src="assets/images/image_9f0794c6.jpg" alt="Ai Assistant" class="ai-bear-avatar" onerror="handleAssistantImgError(this)">
+        </span>
+        <span>Ai Assistant</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== HIDDEN #/ADMIN DASHBOARD VIEW ==================== -->
+  <div id="adminAppView" class="hidden min-h-screen text-slate-900">
+    <div id="adminLoginBox" class="min-h-screen flex items-center justify-center p-4">
+      <div class="studio-card bg-white rounded-3xl max-w-md w-full p-7 sm:p-8 space-y-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="sudo-terminal-badge px-3 py-2 rounded-xl text-base leading-none" aria-hidden="true">
+              <span class="sudo-prompt-chevron">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </span><span class="sudo-cursor">_</span>
+            </span>
+            <div>
+              <h1 class="text-xl font-extrabold text-slate-900">Sudo Systems Admin</h1>
+              <p class="text-xs text-slate-500">Restricted Lead Console (#/admin)</p>
+            </div>
+          </div>
+          <button type="button" onclick="returnToPublicSite()" class="text-xs font-bold text-slate-500 hover:text-slate-800 cursor-pointer">
+            Site &rarr;
+          </button>
+        </div>
+
+        <form id="adminLoginForm" onsubmit="handleAdminLogin(event)" class="space-y-4">
+          <div>
+            <label for="adminUser" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Admin Email or Username</label>
+            <input id="adminUser" name="adminUser" type="text" autocomplete="username" required placeholder="admin" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm">
+          </div>
+          <div>
+            <label for="adminPass" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Password</label>
+            <input id="adminPass" name="adminPass" type="password" autocomplete="current-password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 focus:border-emerald-600 focus:bg-white outline-none text-sm">
+          </div>
+          <p id="adminLoginError" role="alert" class="hidden text-xs font-semibold text-red-600 bg-red-50 border border-red-200 rounded-xl px-3 py-2"></p>
+          <button type="submit" class="w-full emerald-cta py-3 rounded-xl text-sm font-bold cursor-pointer">
+            Sign In to Admin Dashboard
+          </button>
+        </form>
+
+        <div id="adminAuthModeHint" class="text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-2xl p-3.5">
+          Protected console — sign in with your authorized Sudo Systems administrator credentials.
+        </div>
+      </div>
+    </div>
+
+    <div id="adminDashboardBox" class="hidden">
+      <header class="bg-slate-900 text-white sticky top-0 z-30 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <span class="sudo-terminal-badge px-3 py-1.5 rounded-xl text-base leading-none" aria-hidden="true">
+              <span class="sudo-prompt-chevron">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </span><span class="sudo-cursor">_</span>
+            </span>
+            <div>
+              <div class="text-base sm:text-lg font-extrabold flex items-center gap-2">
+                <span>Sudo Systems · Lead Dashboard</span>
+                <span id="adminSyncBadge" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-800 text-emerald-400 border border-slate-700">Local Mode</span>
+              </div>
+              <div class="text-xs text-emerald-400">Kadapa Operations · Ai Assistant &amp; Form Leads</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <button type="button" onclick="syncLeadsFromCloud(true)" class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl cursor-pointer inline-flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+              <span>Refresh</span>
+            </button>
+            <button type="button" onclick="returnToPublicSite()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-700 cursor-pointer">
+              View Public Site
+            </button>
+            <button type="button" onclick="handleAdminLogout()" class="bg-red-600/90 hover:bg-red-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl cursor-pointer">
+              Logout
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="studio-card bg-white rounded-2xl p-5">
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-500">Total Leads</div>
+            <div id="statTotalLeads" class="text-3xl font-extrabold text-slate-900 mt-1">0</div>
+          </div>
+          <div class="studio-card bg-white rounded-2xl p-5">
+            <div class="text-xs font-bold uppercase tracking-wider text-rose-600">Hot This Week</div>
+            <div id="statHotWeek" class="text-3xl font-extrabold text-rose-600 mt-1">0</div>
+          </div>
+          <div class="studio-card bg-white rounded-2xl p-5">
+            <div class="text-xs font-bold uppercase tracking-wider text-amber-600">Warm Leads</div>
+            <div id="statWarmLeads" class="text-3xl font-extrabold text-amber-600 mt-1">0</div>
+          </div>
+          <div class="studio-card bg-white rounded-2xl p-5">
+            <div class="text-xs font-bold uppercase tracking-wider text-sky-600">Cold Leads</div>
+            <div id="statColdLeads" class="text-3xl font-extrabold text-sky-600 mt-1">0</div>
+          </div>
+        </div>
+
+        <div class="studio-card bg-white rounded-2xl p-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <div class="flex flex-wrap gap-2" id="adminLabelFilters">
+            <button type="button" data-filter="ALL" onclick="setAdminLabelFilter('ALL')" class="admin-filter-btn px-3.5 py-1.5 rounded-full text-xs font-bold bg-slate-900 text-white cursor-pointer">All</button>
+            <button type="button" data-filter="Hot" onclick="setAdminLabelFilter('Hot')" class="admin-filter-btn px-3.5 py-1.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800 cursor-pointer">Hot</button>
+            <button type="button" data-filter="Warm" onclick="setAdminLabelFilter('Warm')" class="admin-filter-btn px-3.5 py-1.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 cursor-pointer">Warm</button>
+            <button type="button" data-filter="Cold" onclick="setAdminLabelFilter('Cold')" class="admin-filter-btn px-3.5 py-1.5 rounded-full text-xs font-bold bg-sky-100 text-sky-800 cursor-pointer">Cold</button>
+          </div>
+          <input id="adminSearchInput" aria-label="Search leads" oninput="renderAdminDashboard()" type="search" placeholder="Search name, phone, service, or issue..." class="px-4 py-2 rounded-xl bg-slate-50 border border-slate-300 focus:border-emerald-600 outline-none text-sm sm:w-72">
+        </div>
+
+        <div class="studio-card bg-white rounded-3xl overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-slate-50 border-b border-slate-200 text-[11px] font-extrabold uppercase tracking-wider text-slate-500">
+                  <th class="py-3.5 px-4">Label</th>
+                  <th class="py-3.5 px-4">Name</th>
+                  <th class="py-3.5 px-4">Phone</th>
+                  <th class="py-3.5 px-4">Service</th>
+                  <th class="py-3.5 px-4">Working Hours</th>
+                  <th class="py-3.5 px-4">Issue / Summary</th>
+                  <th class="py-3.5 px-4">Created</th>
+                </tr>
+              </thead>
+              <tbody id="adminLeadsTableBody" class="divide-y divide-slate-100 text-sm"></tbody>
+            </table>
+          </div>
+          <div id="adminEmptyState" class="hidden p-10 text-center text-slate-500 text-sm">
+            No leads match your current filter.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Lead Detail Modal -->
+    <div id="leadDetailModal" role="dialog" aria-modal="true" aria-labelledby="detailLeadName" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+      <div class="studio-card bg-white rounded-3xl max-w-xl w-full max-h-[92vh] overflow-y-auto p-6 sm:p-7 space-y-5">
+        <div class="flex items-start justify-between gap-3 pb-3 border-b border-slate-200">
+          <div>
+            <div class="flex items-center gap-2.5">
+              <h3 id="detailLeadName" class="text-xl font-extrabold text-slate-900"></h3>
+              <span id="detailLeadBadge" class="px-2.5 py-0.5 rounded-full text-xs font-extrabold"></span>
+            </div>
+            <p id="detailLeadMeta" class="text-xs text-slate-500 mt-1"></p>
+          </div>
+          <button type="button" onclick="closeLeadDetailModal()" aria-label="Close Lead Detail" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center cursor-pointer">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs bg-slate-50 p-3.5 rounded-2xl border border-slate-200">
+          <div>
+            <span class="text-slate-400 block font-semibold">Phone</span>
+            <span id="detailLeadPhone" class="font-bold text-slate-800 text-sm"></span>
+          </div>
+          <div>
+            <span class="text-slate-400 block font-semibold">Service</span>
+            <span id="detailLeadService" class="font-bold text-slate-800 text-sm"></span>
+          </div>
+          <div>
+            <span class="text-slate-400 block font-semibold">Working Hours</span>
+            <span id="detailLeadTiming" class="font-bold text-slate-800 text-sm"></span>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-1.5">2–3 Line AI Summary</label>
+          <p id="detailLeadSummary" class="text-sm text-slate-700 leading-relaxed bg-emerald-50/60 border border-emerald-200/70 rounded-2xl p-4"></p>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1.5">
+            <label for="detailWhatsappText" class="text-xs font-extrabold uppercase tracking-wider text-slate-500">WhatsApp Follow-Up (Friendly Indian English)</label>
+            <span id="copyStatusBadge" class="text-xs font-bold text-emerald-700 hidden">Copied!</span>
+          </div>
+          <textarea id="detailWhatsappText" rows="6" class="w-full p-3.5 rounded-2xl bg-slate-50 border border-slate-300 focus:border-emerald-600 outline-none text-xs sm:text-sm text-slate-800 leading-relaxed"></textarea>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-200">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-bold text-slate-500 mr-1">Label:</span>
+            <button type="button" onclick="updateSelectedLeadLabel('Hot')" class="px-3 py-1.5 rounded-lg text-xs font-extrabold bg-rose-100 hover:bg-rose-200 text-rose-800 cursor-pointer">Hot</button>
+            <button type="button" onclick="updateSelectedLeadLabel('Warm')" class="px-3 py-1.5 rounded-lg text-xs font-extrabold bg-amber-100 hover:bg-amber-200 text-amber-800 cursor-pointer">Warm</button>
+            <button type="button" onclick="updateSelectedLeadLabel('Cold')" class="px-3 py-1.5 rounded-lg text-xs font-extrabold bg-sky-100 hover:bg-sky-200 text-sky-800 cursor-pointer">Cold</button>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="copyFollowUpMessage()" class="aluminum-btn px-4 py-2.5 rounded-xl text-xs font-bold inline-flex items-center gap-1.5 cursor-pointer">
+              <svg class="w-3.5 h-3.5 text-emerald-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copy Message</span>
+            </button>
+            <a id="detailOpenWhatsappLink" href="#" target="_blank" rel="noopener noreferrer" class="emerald-cta px-4 py-2.5 rounded-xl text-xs font-bold inline-flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.01-2.42.27-.29.58-.36.77-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.3-.13.58.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.41.29.15.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.15.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+              <span>Open WA</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Non-Blocking Toast Notification -->
+  <div id="toastBanner" role="status" aria-live="polite" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 hidden bg-slate-900 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full shadow-xl border border-slate-700"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/leads.js"></script>
+  <script src="assets/js/assistant.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
