@@ -1,7 +1,7 @@
 // ==================== 1. CONFIG & OPTIONAL SUPABASE SETUP ====================
 const SUPABASE_CONFIG = {
-  url: 'https://YOUR_PROJECT_ID.supabase.co',
-  anonKey: 'YOUR_SUPABASE_ANON_KEY'
+  url: 'https://ldklodlhytjpglckmgua.supabase.co/rest/v1/',
+  anonKey: 'sb_publishable_FkrlbHsv4IoKuzeeZYaiLQ_eriObrFH'
 };
 
 const isSupabaseConfigured =
